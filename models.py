@@ -33,10 +33,19 @@ class Survey(db.Model):
     """Survey."""
 
     __tablename__ = "surveys"
-    
+
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    before_survey = db.Column(db.Boolean, nullable=False, default=False)
+    after_survey = db.Column(db.Boolean, nullable=False, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+class Favorite(db.Model):
+    """Favorite."""
 
+    __tablename__ = "favorites"
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    game_id = db.Column(db.Integer, db.ForeignKey('games.id'), nullable=False)
 
 
 
