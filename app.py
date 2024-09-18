@@ -3,9 +3,10 @@
 from flask import Flask, redirect, render_template, flash
 from flask_debugtoolbar import DebugToolbarExtension
 import os
-
 from models import db, connect_db, User, Game, Survey, Favorite
 from forms import NewSongForPlaylistForm, SongForm, PlaylistForm
+
+base_URL = "https://www.freetogame.com/api"
 
 app = Flask(__name__)
 # Please do not modify the following line on submission
